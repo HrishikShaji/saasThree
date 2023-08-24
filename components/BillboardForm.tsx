@@ -57,7 +57,7 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
   });
 
   const onSubmit = async (data: BillboardFormValues) => {
-    console.log(data);
+    console.log("patch params are", params);
     try {
       setLoading(true);
       if (initialData) {
@@ -79,6 +79,7 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
   };
 
   const onDelete = async () => {
+    console.log("params are", params);
     try {
       setLoading(true);
       await axios.delete(
