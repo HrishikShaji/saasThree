@@ -1,28 +1,33 @@
 import { BillboardClient } from "@/app/(dashboard)/[storeId]/(routes)/billboards/components/client";
 import prismadb from "@/lib/prismadb";
 import React from "react";
-import { BillboardColumn } from "./components/columns";
+import { CategoryColumn } from "./components/columns";
 import { format } from "date-fns";
+import { CategoryClient } from "./components/client";
 
 const page = async ({ params }: { params: { storeId: string } }) => {
-  const billboards = await prismadb.billboard.findMany({
+  const categories = await prismadb.category.findMany({
     where: {
       storeId: params.storeId,
+    },
+    include: {
+      billboard: true,
     },
     orderBy: {
       createdAt: "desc",
     },
   });
 
-  const formattedBillboards: BillboardColumn[] = billboards.map((item) => ({
+  const formattedCategories: CategoryColumn[] = categories.map((item) => ({
     id: item.id,
-    label: item.label,
+    name: item.name,
+    billboardLabel: item.billboard.label,
     createdAt: format(item.createdAt, "MMMM do,yyyy"),
   }));
   return (
     <div className="flex flex-col">
       <div className="flex-1 space-y-4 p-8 pt-6">
-        <BillboardClient data={formattedBillboards} />
+        <CategoryClient data={formattedCategories} />
       </div>
     </div>
   );

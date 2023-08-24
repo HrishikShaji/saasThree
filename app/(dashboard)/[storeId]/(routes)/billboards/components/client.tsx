@@ -1,17 +1,17 @@
 "use client";
 
 import { Plus } from "lucide-react";
-import Heading from "./ui/Heading";
-import { Button } from "./ui/button";
+import Heading from "../../../../../../components/ui/Heading";
+import { Button } from "../../../../../../components/ui/button";
 import { useParams, useRouter } from "next/navigation";
 import { Billboard } from "@prisma/client";
 import {
   BillboardColumn,
   columns,
 } from "@/app/(dashboard)/[storeId]/(routes)/billboards/components/columns";
-import { Separator } from "./ui/separator";
-import { DataTable } from "./ui/data-table";
-import { ApiList } from "./ui/api-list";
+import { Separator } from "../../../../../../components/ui/separator";
+import { DataTable } from "../../../../../../components/ui/data-table";
+import { ApiList } from "../../../../../../components/ui/api-list";
 
 interface BillboardClientProps {
   data: BillboardColumn[];

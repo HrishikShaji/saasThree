@@ -1,13 +1,13 @@
 "use client";
 import { Billboard, Store } from "@prisma/client";
 import React, { useState } from "react";
-import Heading from "./ui/Heading";
-import { Button } from "./ui/button";
+import Heading from "../../../../../../../components/ui/Heading";
+import { Button } from "../../../../../../../components/ui/button";
 import { Trash } from "lucide-react";
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Separator } from "./ui/separator";
+import { Separator } from "../../../../../../../components/ui/separator";
 import {
   Form,
   FormControl,
@@ -15,15 +15,15 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "./ui/form";
-import { Input } from "./ui/input";
+} from "../../../../../../../components/ui/form";
+import { Input } from "../../../../../../../components/ui/input";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
-import { AlertModal } from "./modals/alert-modal";
-import { ApiAlert } from "./ui/api-alert";
+import { AlertModal } from "../../../../../../../components/modals/alert-modal";
+import { ApiAlert } from "../../../../../../../components/ui/api-alert";
 import { useOrigin } from "@/hooks/use-origin";
-import ImageUpload from "./ui/image-upload";
+import ImageUpload from "../../../../../../../components/ui/image-upload";
 
 const formSchema = z.object({
   label: z.string().min(1),

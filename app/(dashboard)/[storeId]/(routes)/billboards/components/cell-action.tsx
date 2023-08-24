@@ -8,13 +8,13 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger,
-} from "./dropdown-menu";
-import { Button } from "./button";
+} from "../../../../../../components/ui/dropdown-menu";
+import { Button } from "../../../../../../components/ui/button";
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 import { toast } from "react-hot-toast";
 import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
-import { AlertModal } from "../modals/alert-modal";
+import { AlertModal } from "../../../../../../components/modals/alert-modal";
 
 interface CellActionProps {
   data: BillboardColumn;
